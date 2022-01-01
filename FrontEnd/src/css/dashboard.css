@@ -1,0 +1,50 @@
+.outercard{
+    float: left;
+    padding: 15px;
+    cursor: pointer;
+    
+
+}
+
+.card{
+        display: inline-block;
+        position: relative;
+        width: 200px;
+        height: 200px;
+        overflow: hidden;
+      }
+.circle{
+        width: auto;
+        height: 100%;
+        padding:10px
+      }
+   
+
+
+.Headline{
+    float: left;
+    padding: 20px;
+    margin-top: 50px;
+}
+
+.empty{
+    float:right;
+}
+
+.Dashboard{
+            height: 100vh;
+    /* display: flex; */
+    align-content: center;
+}
+.cardname{
+    background-color: rgb(252, 247, 247);
+
+}
+#bottom {
+    position: absolute;
+    padding: 20px;
+    bottom: 150px;
+    left: 0;
+
+}
+

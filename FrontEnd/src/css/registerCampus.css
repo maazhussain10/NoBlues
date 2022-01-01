@@ -1,0 +1,41 @@
+.register{
+    background: -webkit-linear-gradient(left, #3931af, #00c6ff);
+    margin-top: 1%;
+}
+
+.register-left{
+    text-align: center;
+    color: #fff;
+    margin-top: 4%;
+}
+
+.register-right{
+    background: #f8f9fa;
+    border-top-left-radius: 20% 50%;
+    border-bottom-left-radius: 20% 50%;
+}
+
+.register .register-form{
+    padding: 10% 10% 3% 10%;
+    margin-top: 5%;
+}
+
+.btnRegister{
+    float: right;
+    /* margin-top: 1%; */
+    border: none;
+    border-radius: 1rem;
+    padding: 3%;
+    background: #0062cc;
+    color: #fff;
+    font-weight: 700;
+    width: 50%;
+    cursor: pointer;
+}
+
+.register-heading{
+    text-align: center;
+    margin-top: 4%;
+    margin-bottom: -10%;
+    color: #495057;
+}
