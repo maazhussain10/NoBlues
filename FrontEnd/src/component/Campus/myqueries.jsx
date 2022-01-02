@@ -3,32 +3,35 @@ import CampusNavbar from "./campusNavbar";
 import axios from "axios";
 import "../../css/campus.css";
 import { Redirect } from "react-router";
-// import { Redirect } from 'react-router';
+
 class MyQueries extends Component {
     state = {
         myQueries: [],
         username: "",
-        CampusName: "",
+        campusName: "",
+        campusId: "",
+        queryArray:[],
         queryId: "",
-        Query: "",
+        query: "",
     };
+
     componentDidMount = async () => {
         await this.setState({
             username: localStorage.getItem("username"),
-            CampusName: localStorage.getItem("CampusName"),
+            campusName: localStorage.getItem("campusName"),
+            campusId: localStorage.getItem("campusQkey"),
         });
-        this.getMyQueries();
+        await this.getMyQueries();
     };
 
     getMyQueries = () => {
-        let { username, CampusName } = this.state;
-
+        let { username, campusId } = this.state;
         try {
             axios({
                 method: "get",
-                url: "http://localhost:5000/getmyqueries",
+                url: "http://localhost:5000/getMyQueries",
                 params: {
-                    CampusName: CampusName,
+                    campusId: campusId,
                     username: username,
                 },
             }).then((response) => {
@@ -43,7 +46,7 @@ class MyQueries extends Component {
         try {
             axios({
                 method: "get",
-                url: "http://localhost:5000/deletequery",
+                url: "http://localhost:5000/deleteQuery",
                 params: {
                     queryId: queryId,
                 },
@@ -56,17 +59,20 @@ class MyQueries extends Component {
     };
 
     answerQuery = (myQuery) => {
-        this.setState({ queryId: myQuery.queryId, Query: myQuery.query });
+        this.setState({ queryId: myQuery.queryId, query: myQuery.query,queryArray:myQuery });
     };
+
     render() {
         if (this.state.queryId) {
+            console.log(this.state.query, this.state.queryId);
             return (
                 <Redirect
                     to={{
-                        pathname: `/${this.state.username}/${this.state.CampusName}/answerquery`,
+                        pathname: `/${this.state.username}/${this.state.campusName}/answerquery`,
                         state: {
                             queryId: this.state.queryId,
-                            Query: this.state.Query,
+                            query: this.state.query,
+                            queryArray:this.state.queryArray,
                             isAdmin: true,
                         },
                     }}
@@ -76,7 +82,6 @@ class MyQueries extends Component {
             return (
                 <div className="Dashboard">
                     <CampusNavbar />
-
                     <div className="content">
                         <div className="textarea">
                             {this.state.myQueries.map((myQuery, index) => (
@@ -104,6 +109,9 @@ class MyQueries extends Component {
                                         </span>
                                         <span className="count">
                                             {myQuery.answerCount}
+                                        </span>
+                                        <span style={{background:"red"}} className="count">
+                                            {myQuery.likeCount}
                                         </span>
                                         <span className="date">
                                             {myQuery.date.slice(0, 10)}

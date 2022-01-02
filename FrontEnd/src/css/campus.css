@@ -1,8 +1,42 @@
 .textarea{
-    margin-top: 50px;
+    margin-top: 10px;
     margin-left: 400px;
-    padding: 40px;
     width: 50%;
+    padding-left: 15px;
+}
+
+.label{
+    margin-left: 400px;
+    margin-top: 50px;
+    width: 80%;
+}
+
+.tag-wrapper{
+    background-color: #ffffff;
+    padding: 15px 0px 15px 15px;
+    margin-left: 10px;
+}
+
+.ReactTags__remove{
+    padding: 15px 15px 15px 10px;
+    margin-left: 20px;
+    font-weight: bolder;
+}
+
+.ReactTags__tagInputField{
+    width: 63%;
+    margin-top: 10px;
+    padding: 10px;
+}
+
+
+.post{
+    width: 80px;
+    border-radius: 8px;
+    font-size: larger;
+    padding: 5px;
+    margin-left:68%;
+    margin-top: 20px;
 }
 
 .query{
@@ -17,6 +51,50 @@
     border: 2px solid white;
 }
 
+.heart{
+    position: relative;
+    width: 100px;
+    height: 90px;
+    float: left;
+}
+.heart:before,
+.heart:after{
+    position: absolute;
+    content: "";
+    left: 50px;
+    top: 0;
+    width: 50px;
+    height: 80px;
+    background: #fc2e5a;
+    -moz-border-radius: 50px 50px 0 0;
+    border-radius: 50px 50px 0 0;
+    -webkit-transform: rotate(-45deg);
+       -moz-transform: rotate(-45deg);
+        -ms-transform: rotate(-45deg);
+         -o-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+    -webkit-transform-origin: 0 100%;
+       -moz-transform-origin: 0 100%;
+        -ms-transform-origin: 0 100%;
+         -o-transform-origin: 0 100%;
+            transform-origin: 0 100%;
+}
+.heart:after{
+    left: 0;
+    -webkit-transform: rotate(45deg);
+       -moz-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+         -o-transform: rotate(45deg);
+            transform: rotate(45deg);
+    -webkit-transform-origin: 100% 100%;
+       -moz-transform-origin: 100% 100%;
+        -ms-transform-origin: 100% 100%;
+         -o-transform-origin: 100% 100%;
+            transform-origin :100% 100%;
+}
+
+
+
 .answerinput{
     margin-top: 25px;
     padding: 10px;
@@ -26,13 +104,6 @@
 .replies{
    border: 2px solid white;
     margin-top: 30px;
-}
-
-.textarea1{
-    margin-top: 20px;
-    margin-left: 400px;
-    padding: 40px;
-    width: 50%
 }
 
 .myquery{
@@ -118,22 +189,9 @@ content {
     padding-top: 30px;
 }
 
-.label{
-    margin-left: 400px;
-}
-
 .label2{
     margin-left:400px;
-    margin-top: 270px;
-}
-
-.post{
-    width: 80px;
-    border-radius: 8px;
-    background: linear-gradient(to right, #E2E2E2, #C9D6FF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    padding: 2px;
-    margin-left:70%;
-    margin-top: 10px;
+    margin-top: 280px;
 }
 
 .friendsTitle{

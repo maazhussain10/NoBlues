@@ -1,78 +1,122 @@
-import React, { Component } from 'react'
-import CampusNavbar from './campusNavbar';
-import axios from 'axios'
-import '../../css/campus.css'
-// import { Redirect } from 'react-router';
+import React, { Component } from "react";
+import CampusNavbar from "./campusNavbar";
+import axios from "axios";
+import "../../css/campus.css";
+import { WithContext as ReactTags } from 'react-tag-input';
+
+const KeyCodes = {
+    comma: 188,
+    enter: [10, 13],
+};
+
+const delimiters = [...KeyCodes.enter, KeyCodes.comma];
+
 class Campus extends Component {
-    state = { queries: "", hashtag: "", username: "", CampusName: "" }
-    componentDidMount = () => {
-        this.setState({ username: localStorage.getItem('username'), CampusName: localStorage.getItem('CampusName') })
+    constructor(props) {
+        super(props);
+        this.state = {
+            tags: [],
+            suggestions: []
+        };
+        this.handleDelete = this.handleDelete.bind(this);
+        this.handleAddition = this.handleAddition.bind(this);
+        this.handleDrag = this.handleDrag.bind(this);
     }
 
-    post = () => {
-        let tempqueries = document.getElementById('floatingTextarea').value
-        let temphashtag = document.getElementById('floatingTextarea1').value
+    state = { queries: "", campusId:"", username: "", campusName: "" };
 
-        this.setState({ queries: tempqueries, hashtag: temphashtag })
-        let { username, CampusName } = this.state
+    componentDidMount = async() => {
+        await this.setState({
+            username: localStorage.getItem("username"),
+            campusName: localStorage.getItem("campusName"),
+            campusId: localStorage.getItem("campusQkey"),
+        });
+        console.log(this.state.tags);
+    };
 
+    handleDelete(i) {
+        const { tags } = this.state;
+        this.setState({
+         tags: tags.filter((tag, index) => index !== i),
+        });
+    }
+
+    async handleAddition(tag) {
+        await this.setState(state => ({ tags: [...state.tags, tag] }));
+        console.log(this.state.tags);
+    }
+
+    handleDrag(tag, currPos, newPos) {
+        const tags = [...this.state.tags];
+        const newTags = tags.slice();
+
+        newTags.splice(currPos, 1);
+        newTags.splice(newPos, 0, tag);
+
+        // re-render
+        this.setState({ tags: newTags });
+    }
+
+    post = async() => {
+        await this.setState({ queries: document.getElementById("floatingTextarea").value});
+
+        let { username, campusId,queries,tags } = this.state;
+        console.log(username, campusId, queries, tags);
         try {
             axios({
-                method: 'get',
-                url: 'http://localhost:5000/postquery',
+                method: "get",
+                url: "http://localhost:5000/postQuery",
                 params: {
-                    CampusName: CampusName,
+                    campusId: campusId,
                     username: username,
-                    queries: tempqueries,
-                    hashtag: temphashtag
-                }
-
-            }).then(response => {
-                document.getElementById('floatingTextarea').value = ""
-                document.getElementById('floatingTextarea1').value = ""
-
-            })
+                    queries: queries,
+                    tags: tags,
+                },
+            }).then((response) => {
+                document.getElementById("floatingTextarea").value = "";
+            });
+        } catch (e) {
+            console.log(e);
         }
-
-        catch (e) {
-            console.log(e)
-        }
-
-
-
-    }
-
-
+    };
 
     render() {
-
-
+        const { tags } = this.state;
         return (
-
             <div className="Dashboard">
                 <CampusNavbar />
-
-
-
                 <div className="content">
                     <div className="form-floating">
-                        <textarea rows="10" className="form-control h-50 textarea" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
-                        <label className="label" for="floatingTextarea"> Clear your campus queries here!</label>
-                        <textarea rows="4" className="form-control h-20 textarea1" placeholder="Leave a comment here" id="floatingTextarea1"></textarea>
-                        <label className="label2" for="floatingTextarea1">Add hashtags </label>
-                        <button className="post" type="button" onClick={() => this.post()}>Post</button>
-                    </div>
+                        <div className="label">Enter your Query</div>
+                        <textarea
+                            rows="6"
+                            className="form-control h-50 textarea"
+                            placeholder="Leave a comment here"
+                            id="floatingTextarea"
+                        ></textarea>
+                        <div className="label">Enter Hashtags</div>
+                        <div className="label">
+                        <ReactTags
+                            tags={tags}
+                            handleDelete={this.handleDelete}
+                            handleAddition={this.handleAddition}
+                            handleDrag={this.handleDrag}
+                            delimiters={delimiters}
+                            />
+                        </div>
 
+                        <button
+                            className="btn btn-success post"
+                            type="button"
+                            onClick={() => this.post()}
+                        >
+                            Post
+                        </button>
+                    </div>
                 </div>
             </div>
-
-
-
         );
     }
 }
 
 export default Campus;
-
-
-

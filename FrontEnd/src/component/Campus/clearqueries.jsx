@@ -3,55 +3,58 @@ import CampusNavbar from "./campusNavbar";
 import axios from "axios";
 import "../../css/campus.css";
 import { Redirect } from "react-router";
-// import { Redirect } from 'react-router';
+
 class ClearQueries extends Component {
     state = {
-        Queries: [],
+        queries: [],
+        queryArray:[],
         username: "",
-        CampusName: "",
+        campusName: "",
         queryId: "",
-        Query: "",
+        query: "",
     };
+
     componentDidMount = async () => {
         await this.setState({
             username: localStorage.getItem("username"),
-            CampusName: localStorage.getItem("CampusName"),
+            campusName: localStorage.getItem("campusName"),
+            campusId: localStorage.getItem("campusQkey"),
         });
         this.getQueries();
     };
 
     getQueries = () => {
-        let { username, CampusName } = this.state;
-
+        let { username, campusId} = this.state;
         try {
             axios({
                 method: "get",
-                url: "http://localhost:5000/getqueries",
+                url: "http://localhost:5000/getQueries",
                 params: {
-                    CampusName: CampusName,
                     username: username,
+                    campusId: campusId
                 },
             }).then((response) => {
-                this.setState({ Queries: response.data });
+                this.setState({ queries: response.data });
             });
         } catch (e) {
             console.log(e);
         }
     };
 
-    answerQuery = (Query) => {
-        this.setState({ queryId: Query.queryId, Query: Query.query });
-        console.log("jjj", this.state.queryId);
+    answerQuery = (query) => {
+        this.setState({ queryId: query.queryId, query: query.query, queryArray:query });
     };
+
     render() {
         if (this.state.queryId) {
             return (
                 <Redirect
                     to={{
-                        pathname: `/${this.state.username}/${this.state.CampusName}/answerquery`,
+                        pathname: `/${this.state.username}/${this.state.campusName}/answerquery`,
                         state: {
                             queryId: this.state.queryId,
-                            Query: this.state.Query,
+                            query: this.state.query,
+                            queryArray: this.state.queryArray,
                             isAdmin: false,
                         },
                     }}
@@ -61,29 +64,30 @@ class ClearQueries extends Component {
             return (
                 <div className="Dashboard">
                     <CampusNavbar />
-
                     <div className="content">
                         <div className="textarea">
-                            {this.state.Queries.map((Query, index) => (
+                            {this.state.queries.map((query, index) => (
                                 <div className="query" key={index}>
                                     <span>
-                                        <span> {Query.username} </span>
+                                        <span> {query.username} </span>
                                         <span className="count">
-                                            {Query.answerCount}
+                                            {query.answerCount}
                                         </span>
-
+                                        <span style={{background:"red"}} className="count">
+                                            {query.likeCount}
+                                        </span>
                                         <span className="date">
-                                            {Query.date.slice(0, 10)}
+                                            {query.date.slice(0, 10)}
                                         </span>
                                     </span>
                                     <div className="question">
                                         {" "}
                                         <span
                                             onClick={() =>
-                                                this.answerQuery(Query)
+                                                this.answerQuery(query)
                                             }
                                         >
-                                            {Query.query}{" "}
+                                            {query.query}{" "}
                                         </span>{" "}
                                     </div>
                                 </div>

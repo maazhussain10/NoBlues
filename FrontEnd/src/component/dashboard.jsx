@@ -87,10 +87,3 @@ class Dashboard extends Component {
 
 export default Dashboard;
 
-
-
-// Akshara
-//     < img src = "https://www.infinitecourses.com/Admin/Upload/Schools/634878962417234663_logo1.jpg" ></img >
-
-
-

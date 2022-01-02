@@ -27,36 +27,35 @@ CREATE TABLE userAccount(
 );
 
 CREATE TABLE queries(
-    userId varchar(30),
-    campusId varchar(50),
+    userId varchar(40),
+    campusId varchar(8),
     queryId varchar(40) primary key,
     query varchar(2000),
-    hashtag varchar(100),
+    hashtag varchar(200),
     anonymous boolean,
-    dateCreated datetime
+    dateCreated datetime,
+    FOREIGN KEY (userId) REFERENCES userAccount (userId) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE answers(
-    userId varchar(30),
-    campusId varchar(50),
+    userId varchar(40),
+    campusId varchar(8),
     queryId varchar(40),
     answerId varchar(40),
     answers varchar(2500),
     anonymous boolean,
     dateCreated datetime,
-    foreign key (queryId) references queries(queryId) on delete cascade
+    foreign key (queryId) references queries(queryId) on delete cascade on update cascade
 );
 
-alter table answers add constraint queryId_key on delete cascade;
-
 CREATE TABLE likes(
-    userId varchar(30),
-    campusId varchar(50),
+    userId varchar(40),
+    campusId varchar(8),
     queryId varchar(40),
     answerId varchar(40),
-    queryLikes int,
-    anonymous boolean,
-    answerLikes int
+    queryLikes boolean,
+    answerLikes boolean,
+    anonymous boolean
 )
 
 CREATE TABLE chat(
