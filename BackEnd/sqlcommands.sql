@@ -56,7 +56,7 @@ CREATE TABLE likes(
     queryLikes boolean,
     answerLikes boolean,
     anonymous boolean
-)
+);
 
 CREATE TABLE chat(
     chatId varchar(40) primary key,
