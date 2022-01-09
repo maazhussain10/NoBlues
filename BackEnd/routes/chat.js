@@ -7,16 +7,16 @@ class Chat {
     }
     sendMessage(app) {
         app.get('/sendmessage', async (req, res) => {
-            let { username, campusId, friendUsername, message } = req.query
-            let sendMessage = await sqlFunctions.sendMessage(username, campusId, friendUsername, message)
+            let { username, campusId, friendUsername, message, depressedPortal } = req.query
+            let sendMessage = await sqlFunctions.sendMessage(username, campusId, friendUsername, message, depressedPortal)
             res.send(sendMessage)
         })
     }
 
     chatDetails(app) {
         app.get('/chatdetails', async (req, res) => {
-            let { username, campusId, friendUsername } = req.query
-            let chatDetails = await sqlFunctions.chatDetails(username, campusId, friendUsername)
+            let { username, campusId, friendUsername, depressedPortal } = req.query;
+            let chatDetails = await sqlFunctions.chatDetails(username, campusId, friendUsername, depressedPortal)
             res.send(chatDetails)
         })
     }

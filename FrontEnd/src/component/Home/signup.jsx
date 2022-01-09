@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../css/homepage.css';
+import '../../css/homepage.css';
 import axios from 'axios';
 import Navbar from './navbar';
 
@@ -59,10 +59,6 @@ class Signup extends Component {
                 }
             }).then(response => {
                     this.setState({ signupStatus: true })
-                    // for(let i=0;i<document.getElementsByClassName('form-control').length;i++){
-                    //     document.getElementsByClassName('form-control')[i].value="";
-                    //     this.setState({campusInfo:[]});
-                    // }
                     alert("Account Created Successfully");
                 })
         } catch (e) {
@@ -72,9 +68,9 @@ class Signup extends Component {
 
     render() {
         return (
-            <>
-            <Navbar />
-                <div className="container register">
+            <div className='divn'>
+                <Navbar />
+                <div className="container register" style={{marginTop: "1%"}}>
                     <div className="row">
                         <div className="col-md-3 register-left">
                         </div>
@@ -136,8 +132,8 @@ class Signup extends Component {
                         </div>
                     </div>
                 </div>
-
-        </>);
+            </div>
+        );
     }
 }
 

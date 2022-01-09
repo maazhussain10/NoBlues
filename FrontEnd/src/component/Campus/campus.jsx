@@ -23,7 +23,7 @@ class Campus extends Component {
         this.handleDrag = this.handleDrag.bind(this);
     }
 
-    state = { queries: "", campusId:"", username: "", campusName: "" };
+    state = { queries: "", campusId:"", username: "", campusName: "", depressedPortal: false };
 
     componentDidMount = async() => {
         await this.setState({
@@ -108,6 +108,7 @@ class Campus extends Component {
                         <button
                             className="btn btn-success post"
                             type="button"
+                            style={{background:"#be9fc9"}}
                             onClick={() => this.post()}
                         >
                             Post

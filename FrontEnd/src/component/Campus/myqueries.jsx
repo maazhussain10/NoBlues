@@ -85,7 +85,7 @@ class MyQueries extends Component {
                     <div className="content">
                         <div className="textarea">
                             {this.state.myQueries.map((myQuery, index) => (
-                                <div className="myquery  row g-3" key={index}>
+                                <div className="myquery  row g-3" key={index} style={{ background: "#F0FFFF" }}>
                                     <div className="col-md-8 ">
                                         {" "}
                                         <span

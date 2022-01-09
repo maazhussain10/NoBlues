@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Navbar from './navbar';
 import axios from 'axios'
-import '../css/registerCampus.css';
+import '../../css/homepage.css';
 
 class RegisterCampus extends Component {
     state={
@@ -15,9 +15,6 @@ class RegisterCampus extends Component {
     }
 
     registerCampus = async() =>{
-        // let password=document.getElementById('campusPassword').value;
-        // let confirmPassword=document.getElementById('campusConfirmPassword').value;
-
         await this.setState({ 
             campusName:document.getElementById('campusName').value,
             campusType:document.getElementById('campusType').value,
@@ -27,7 +24,7 @@ class RegisterCampus extends Component {
             campusLogo:document.getElementById('campusLogo').value,
             campusPassword:document.getElementById('campusPassword').value
         })
-        
+
         let {campusName,campusType,planType,noOfPersons,campusEmail,campusLogo,campusPassword} = this.state;
         console.log(campusName,campusType,planType,noOfPersons,campusEmail,campusLogo,campusPassword);
         try {
@@ -52,14 +49,11 @@ class RegisterCampus extends Component {
         }
 
     }
-    render() { 
-        // const urlParams = new URLSearchParams(window.location.search);
-        // const myParam = urlParams.get('plan');
-        
+    render() {
         return(
             <>
                 <Navbar/>
-                <div className="container register">
+                <div className="container register" style={{marginTop: "1%"}}>
                 <div className="row">
                     <div className="col-md-3 register-left">
                     </div>

@@ -56,7 +56,6 @@ class Queries {
             let { queryId, username } = req.query;
             let userId = await sqlFunctions.getUserId(username);
             let queryAnswers = await sqlFunctions.getQueryAnswers(userId,queryId);
-            console.log(queryAnswers);
             res.send(queryAnswers);
         })
     }
@@ -86,9 +85,6 @@ class Queries {
         })
     }
 }
-
-
-
 
 module.exports = Queries;
 

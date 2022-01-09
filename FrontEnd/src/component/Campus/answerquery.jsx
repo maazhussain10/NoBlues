@@ -8,7 +8,7 @@ class AnswerQuery extends Component {
         query: "",
         answers: [],
         campusName: "",
-        queryArray:[],
+        queryArray: [],
         queryId: "",
         username: "",
         isAdmin: false,
@@ -29,13 +29,13 @@ class AnswerQuery extends Component {
     };
 
     getQueryAnswers = () => {
-        let { queryId,username } = this.state;
+        let { queryId, username } = this.state;
         try {
             axios({
                 method: "get",
                 url: "http://localhost:5000/getQueryAnswers",
                 params: {
-                    username:username,
+                    username: username,
                     queryId: queryId,
                 },
             }).then((response) => {
@@ -57,7 +57,7 @@ class AnswerQuery extends Component {
                     campusId: campusId,
                     username: username,
                     reply: reply,
-                    queryId: queryId
+                    queryId: queryId,
                 },
             }).then((response) => {
                 document.getElementById("replybox").value = "";
@@ -76,8 +76,7 @@ class AnswerQuery extends Component {
                 params: {
                     queryId: queryId,
                 },
-            }).then((response) => {
-            });
+            }).then((response) => {});
         } catch (e) {
             console.log(e);
         }
@@ -98,7 +97,7 @@ class AnswerQuery extends Component {
             console.log(e);
         }
     };
-    
+
     like = (type, id) => {
         let { username, campusId } = this.state;
         try {
@@ -107,9 +106,9 @@ class AnswerQuery extends Component {
                 url: "http://localhost:5000/likeCount",
                 params: {
                     username: username,
-                    campusId:campusId,
+                    campusId: campusId,
                     type: type,
-                    id:id
+                    id: id,
                 },
             }).then((response) => {
                 this.getQueryAnswers();
@@ -119,8 +118,6 @@ class AnswerQuery extends Component {
         }
     };
 
-
-
     render() {
         let { isAdmin, query, queryId, queryArray, answers } = this.state;
         return (
@@ -128,15 +125,24 @@ class AnswerQuery extends Component {
                 <CampusNavbar />
                 <div className="content">
                     <div className="textarea">
-                        <div className="myquery">
+                        <div className="myquery" style={{background:"#F0FFFF"}}>
                             <span>{query}</span>
                             <span
-                                    className="like"
-                                    onClick={() => this.like("query",queryId)}
+                                className="like"
+                                onClick={() => this.like("query", queryId)}
                             >
                                 {queryArray.likeCount}{" "}
-                                {queryArray.userLikeStatus ?
-                                    <i style={{ color: "red" }} className="fas fa-heart"></i> :<i style={{ color: "gray" }} className="fas fa-heart"></i> }
+                                {queryArray.userLikeStatus ? (
+                                    <i
+                                        style={{ color: "red" }}
+                                        className="fas fa-heart"
+                                    ></i>
+                                ) : (
+                                    <i
+                                        style={{ color: "gray" }}
+                                        className="fas fa-heart"
+                                    ></i>
+                                )}
                             </span>
                             {isAdmin ? (
                                 <span
@@ -156,14 +162,16 @@ class AnswerQuery extends Component {
                         <button
                             className="post1"
                             type="button"
+                            style={{background:"#be9fc9", padding:"5px", fontSize:"18px", fontWeight: "600"}}
                             onClick={() => this.reply()}
                         >
                             Reply
                         </button>
 
                         {answers.map((answer, index) => (
-                            <div className="replies">
-                                {isAdmin || answer.username===this.state.username ? (
+                            <div className="replies" style={{ background: "#F0F0FF" }}>
+                                {isAdmin ||
+                                answer.username === this.state.username ? (
                                     <span
                                         className="deleteanswer"
                                         onClick={() =>
@@ -175,10 +183,22 @@ class AnswerQuery extends Component {
                                 ) : null}
                                 <span
                                     className="like"
-                                    onClick={() => this.like("answer",answer.answerId)}
+                                    onClick={() =>
+                                        this.like("answer", answer.answerId)
+                                    }
                                 >
                                     {answer.likeCount}{" "}
-                                    {answer.userLikeStatus ? <i style={{ color: "red" }} className="fas fa-star"></i> : <i style={{ color: "black" }} className="fas fa-star"></i>}
+                                    {answer.userLikeStatus ? (
+                                        <i
+                                            style={{ color: "red" }}
+                                            className="fas fa-star"
+                                        ></i>
+                                    ) : (
+                                        <i
+                                            style={{ color: "black" }}
+                                            className="fas fa-star"
+                                        ></i>
+                                    )}
                                 </span>
                                 <div className="answerbox">
                                     <div className="answerfield">

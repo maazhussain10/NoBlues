@@ -2,8 +2,6 @@
     float: left;
     padding: 15px;
     cursor: pointer;
-    
-
 }
 
 .card{
@@ -32,8 +30,7 @@
 }
 
 .Dashboard{
-            height: 100vh;
-    /* display: flex; */
+    height: 100vh;
     align-content: center;
 }
 .cardname{

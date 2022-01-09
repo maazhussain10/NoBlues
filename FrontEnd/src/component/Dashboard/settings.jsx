@@ -1,28 +1,36 @@
 import React, { Component } from 'react';
 import DashboardNavbar from './dashboardNavbar';
-import '../css/settings.css';
+import '../../css/settings.css';
 class Settings extends Component {
-    render() {
-        return <div>
-            <DashboardNavbar />
 
+    selectedTab = (id) => {
+        console.log("Hello");
+        let prevSelectedTab = document.getElementsByClassName("account-settings-links");
+        prevSelectedTab.a= "";
+
+    }
+
+    render() {
+        return (<div>
+            <DashboardNavbar />
             <div className="container light-style flex-grow-1 container-p-y">
                 <h4 className="font-weight-bold py-3 mb-4">Account settings</h4>
-                <div className="card overflow-hidden">
+                <div className="card overflow-hidden" style={{ borderRadius: ".5rem", height:"100%", width:"100%" }}>
                     <div className="row no-gutters row-bordered row-border-light">
                         <div className="col-md-3 pt-0">
                             <div className="list-group list-group-flush account-settings-links">
                                 <a
                                     className="list-group-item list-group-item-action active"
                                     data-toggle="list"
-                                    href="#account-general"
+                                    href="#accountGeneral"
                                 >
                                     General
                                 </a>
                                 <a
                                     className="list-group-item list-group-item-action"
                                     data-toggle="list"
-                                    href="#account-change-password"
+                                    href="#accountChangePassword"
+                                    onClick={()=> this.selectedTab("accountChangePassword")}
                                 >
                                     Change password
                                 </a>
@@ -43,6 +51,8 @@ class Settings extends Component {
                                 <a
                                     className="list-group-item list-group-item-action"
                                     data-toggle="list"
+                                    id="account-connections-tab"
+                                    aria-controls="account-connections"
                                     href="#account-connections"
                                 >
                                     Connections
@@ -58,12 +68,12 @@ class Settings extends Component {
                         </div>
                         <div className="col-md-9">
                             <div className="tab-content">
-                                <div className="tab-pane fade active show" id="account-general">
+                                <div className="tab-pane fade active show" id="accountGeneral">
                                     <div className="card-body media align-items-center">
                                         <img
                                             src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp
                                                 "
-                                            alt
+                                            alt=""
                                             className="d-block ui-w-80"
                                         />
                                         <div className="media-body ml-4">
@@ -108,7 +118,7 @@ class Settings extends Component {
                                             <div className="alert alert-warning mt-3">
                                                 Your email is not confirmed. Please check your inbox.
                                                 <br />
-                                                <a href="javascript:void(0)">Resend confirmation</a>
+                                                <a href="/resend">Resend confirmation</a>
                                             </div>
                                         </div>
                                         <div className="form-group">
@@ -121,7 +131,8 @@ class Settings extends Component {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="tab-pane fade" id="account-change-password">
+
+                                <div className="tab-pane fade" id="accountChangePassword">
                                     <div className="card-body pb-2">
                                         <div className="form-group">
                                             <label className="form-label">Current password</label>
@@ -221,7 +232,7 @@ class Settings extends Component {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="tab-pane fade" id="account-connections">
+                                <div className="tab-pane fade" aria-labelledby="account-connections-tab" id="account-connections">
                                     <div className="card-body">
                                         <button type="button" className="btn btn-twitter">
                                             Connect to <strong>Twitter</strong>
@@ -231,7 +242,7 @@ class Settings extends Component {
                                     <div className="card-body">
                                         <h5 className="mb-2">
                                             <a
-                                                href="javascript:void(0)"
+                                                href="/remove"
                                                 className="float-right text-muted text-tiny"
                                             >
                                                 <i className="ion ion-md-close" /> Remove
@@ -365,7 +376,7 @@ class Settings extends Component {
             </div>
 
 
-        </div>
+        </div>);
 
     }
 }

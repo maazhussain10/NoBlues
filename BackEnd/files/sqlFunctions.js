@@ -445,10 +445,12 @@ exports.getFriends = (username, campusId) => {
     });
 };
 
-exports.sendMessage = (username, campusId, friendUsername, message) => {
+exports.sendMessage = (username, campusId, friendUsername, message, depressedPortal) => {
     let chatId = uuid();
     var dateTime = getTime();
     let isAnonymous = false;
+    if (depressedPortal === "true")
+        isAnonymous = true;
     let sql = `insert into chat values(?,?,?,?,?,?,?,?);`;
 
     return new Promise((resolve, reject) => {
@@ -474,8 +476,11 @@ exports.sendMessage = (username, campusId, friendUsername, message) => {
     });
 };
 
-exports.chatDetails = (username, campusId, friendUsername) => {
-    let sql = `select * from chat where sender=? and reciever=? and campusId=? or sender=? and reciever=? and campusId=? order by dateCreated;`;
+exports.chatDetails = (username, campusId, friendUsername, depressedPortal) => {
+    var isAnonymous = false;
+    if (depressedPortal === "true")
+        isAnonymous = true;
+    let sql = `select * from chat where sender=? and reciever=? and campusId=? and isAnonymous=? or sender=? and reciever=? and campusId=? and isAnonymous=? order by dateCreated;`;
     return new Promise((resolve, reject) => {
         connection.query(
             sql,
@@ -483,9 +488,11 @@ exports.chatDetails = (username, campusId, friendUsername) => {
                 username,
                 friendUsername,
                 campusId,
+                isAnonymous,
                 friendUsername,
                 username,
                 campusId,
+                isAnonymous
             ],
             (err, result) => {
                 if (err) console.log(err);

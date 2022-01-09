@@ -1,14 +1,35 @@
-import React, { Component } from 'react'
-import DashboardNavbar from '../dashboardNavbar';
+import React, { Component } from "react";
+import CampusNavbar from "../Campus/campusNavbar";
+import campusShare from "../../images/CampusShare.svg";
+
 class CampuShare extends Component {
-    state = {}
+    state = {};
     render() {
         return (
             <div>
-                < DashboardNavbar />
-                <div className="col md-6">
-                    <h3 className="tagline2" >Check out our latest feature CampuShare!</h3>
-                    <img className="image" src="https://www.tawk.to/wp-content/uploads/2020/08/Get-Close.png" alt="img" />
+                <CampusNavbar />
+                <div
+                    className="row d-flex justify-content-center align-items-center"
+                    style={{ borderTop: "1px solid grey"}}
+                >
+                    <div className="col">
+                        <h3 className="title">
+                            Share your old stuffs to your juniors
+                        </h3>
+                        <p className="description">
+                            Not want to waste your new books to go in vain, sell
+                            it to your juniors belonging to the same
+                            organization for the price you want. Buy the books
+                            from our site without worrying about anything.
+                        </p>
+                    </div>
+                    <div className="col">
+                        <img
+                            style={{ height: "550px" }}
+                            src={campusShare}
+                            alt="img2"
+                        />
+                    </div>
                 </div>
             </div>
         );
@@ -16,4 +37,3 @@ class CampuShare extends Component {
 }
 
 export default CampuShare;
-

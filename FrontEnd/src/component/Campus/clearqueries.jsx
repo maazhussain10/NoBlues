@@ -64,10 +64,10 @@ class ClearQueries extends Component {
             return (
                 <div className="Dashboard">
                     <CampusNavbar />
-                    <div className="content">
+                    <div className="content" >
                         <div className="textarea">
                             {this.state.queries.map((query, index) => (
-                                <div className="query" key={index}>
+                                <div className="query" key={index}  style={{background:"#F0FFFF"}}>
                                     <span>
                                         <span> {query.username} </span>
                                         <span className="count">
