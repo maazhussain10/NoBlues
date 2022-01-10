@@ -17,7 +17,6 @@ class Signup {
     getCampus(app) {
         app.get('/getCampus', async (req, res) => {
             let { campusQKey } = req.query;
-
             let campusInfo = await sqlFunctions.getCampus(campusQKey)
             console.log(campusInfo);
             res.send(campusInfo[0])
