@@ -217,7 +217,7 @@ class Chat extends Component {
                                     ref={this.mesRef}
                                 >
                                     {this.state.friendUsername === "" ? (
-                                        <h1 style={{ color: theme , color:"#a674b8" }}>
+                                        <h1 style={{ color: theme }}>
                                             Chat With any User
                                         </h1>
                                     ) : (
