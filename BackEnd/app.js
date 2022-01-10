@@ -10,9 +10,15 @@ const app = express();
 
 app.use(cors())
 
+app.get('/', function (req, res) {
+    res.send('<html><head><title>AAA</title><body><h1>Maaz Hussain</h1></body></head></html>');
+});
+
 new Signup(app)
 new Login(app)
 new GetCampusDetails(app)
 new Queries(app)
 new Chat(app)
-app.listen(5000, () => console.log("running on port 5000"))
+
+
+app.listen(process.env.PORT||5000, () => console.log("running on port 5000"))
