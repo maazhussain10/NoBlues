@@ -22,8 +22,8 @@ class HomePage extends Component {
                         <div className="col">
                             <h1 className="heading">NoBlues</h1>
                             <h3 className="tagline">
-                                We build technology solutions that transform the
-                                world of education and empower students, staff and faculty.
+                                We build technology solutions that work on driving away blues, increase campus engagement
+                                and make mental health a priority.
                             </h3>
                         </div>
                         <div className="col">
@@ -49,13 +49,10 @@ class HomePage extends Component {
                     </div>
                     <div className="col">
                         <h3 className="title">
-                            Choose your campus which you feel
+                            Belong to more than one campus
                         </h3>
                         <p className="description">
-                            Gain the competitive edge you need to meet
-                            your enrollment and retention goals and help your
-                            institution become agile and responsive to competitive pressures.
-                        </p>
+                            NoBlues gives individuals the chance of registering for more than a single campus! They can choose which campus they feel like engaging in from the dashboard.                    </p>
                     </div>
                 </div>
 
@@ -64,10 +61,10 @@ class HomePage extends Component {
                     style={{ background: "#33325A" }}
                 >
                     <div className="col">
-                        <h3 className="title"  style={{ color: "#F0FFFF" }}>Visit our Depressed Portal</h3>
-                        <p className="description"  style={{ color: "#FFFFFF" }}>
-                            No need to take stress about being in a campus,
-                            vent out the feelings to members of the same campus by being 
+                        <h3 className="title" style={{ color: "#F0FFFF" }}>Visit our Depressed Portal</h3>
+                        <p className="description" style={{ color: "#FFFFFF" }}>
+                            Our Depressed Portal is there for you anytime you're feeling blue,
+                            vent out your frustations to members of your campus(who could relate to it) while being
                             anonymous.
                         </p>
                     </div>
@@ -96,9 +93,8 @@ class HomePage extends Component {
                             Get to know your new Campus
                         </h3>
                         <p className="description">
-                            Being in a new place has always been a hectic task,
-                            CampusQ brings in a change by letting you mingle with the
-                            members of the same campus by getting to know how things
+                            Being in a new place has always been nerve wrecking,
+                            NoBlues brings in a change by letting you mingle with your campusmates, get to know them, ask queries about how things
                             work in your campus.
                         </p>
                     </div>
@@ -109,12 +105,10 @@ class HomePage extends Component {
                     style={{ borderTop: "1px solid grey" }}
                 >
                     <div className="col">
-                        <h3 className="title">Share your old stuffs to your juniors</h3>
+                        <h3 className="title">Sell/Buy used products at reduced prices</h3>
                         <p className="description">
-                            Not want to waste your new books to go in vain,
-                            sell it to your juniors belonging to the same organization 
-                            for the price you want. Buy the books from our site
-                            without worrying about anything.
+                            Don't want to waste your almost-new books to go in vain?
+                            sell it to your juniors using our campus-share feature, malpractices would be hard to pull when both the buyers and sellers belong to the same campus!
                         </p>
                     </div>
                     <div className="col">
@@ -149,7 +143,7 @@ class HomePage extends Component {
                 </div>
 
                 <Pricing />
-                <Footer/>
+                <Footer />
             </div>
         );
     }
