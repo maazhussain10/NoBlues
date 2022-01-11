@@ -30,7 +30,7 @@ class Dashboard extends Component {
         try {
             axios({
                 method: "get",
-                url: "http://localhost:5000/getCampusDetails",
+                url: "http://104.40.67.28:5000/getCampusDetails",
                 params: {
                     username: username,
                 },

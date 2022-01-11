@@ -30,7 +30,7 @@ class RegisterCampus extends Component {
         try {
             axios({
                 method: 'post',
-                url: 'http://localhost:5000/registerCampus',
+                url: 'http://104.40.67.28:5000/registerCampus',
                 params: {
                     campusName:campusName,
                     campusType: campusType,

@@ -10,7 +10,7 @@ class MyQueries extends Component {
         username: "",
         campusName: "",
         campusId: "",
-        queryArray:[],
+        queryArray: [],
         queryId: "",
         query: "",
     };
@@ -29,7 +29,7 @@ class MyQueries extends Component {
         try {
             axios({
                 method: "get",
-                url: "http://localhost:5000/getMyQueries",
+                url: "http://104.40.67.28:5000/getMyQueries",
                 params: {
                     campusId: campusId,
                     username: username,
@@ -46,7 +46,7 @@ class MyQueries extends Component {
         try {
             axios({
                 method: "get",
-                url: "http://localhost:5000/deleteQuery",
+                url: "http://104.40.67.28:5000/deleteQuery",
                 params: {
                     queryId: queryId,
                 },
@@ -59,7 +59,11 @@ class MyQueries extends Component {
     };
 
     answerQuery = (myQuery) => {
-        this.setState({ queryId: myQuery.queryId, query: myQuery.query,queryArray:myQuery });
+        this.setState({
+            queryId: myQuery.queryId,
+            query: myQuery.query,
+            queryArray: myQuery,
+        });
     };
 
     render() {
@@ -72,7 +76,7 @@ class MyQueries extends Component {
                         state: {
                             queryId: this.state.queryId,
                             query: this.state.query,
-                            queryArray:this.state.queryArray,
+                            queryArray: this.state.queryArray,
                             isAdmin: true,
                         },
                     }}
@@ -85,7 +89,11 @@ class MyQueries extends Component {
                     <div className="content">
                         <div className="textarea">
                             {this.state.myQueries.map((myQuery, index) => (
-                                <div className="myquery  row g-3" key={index} style={{ background: "#F0FFFF" }}>
+                                <div
+                                    className="myquery  row g-3"
+                                    key={index}
+                                    style={{ background: "#F0FFFF" }}
+                                >
                                     <div className="col-md-8 ">
                                         {" "}
                                         <span
@@ -110,7 +118,10 @@ class MyQueries extends Component {
                                         <span className="count">
                                             {myQuery.answerCount}
                                         </span>
-                                        <span style={{background:"red"}} className="count">
+                                        <span
+                                            style={{ background: "red" }}
+                                            className="count"
+                                        >
                                             {myQuery.likeCount}
                                         </span>
                                         <span className="date">

@@ -33,7 +33,7 @@ class AnswerQuery extends Component {
         try {
             axios({
                 method: "get",
-                url: "http://localhost:5000/getQueryAnswers",
+                url: "http://104.40.67.28:5000/getQueryAnswers",
                 params: {
                     username: username,
                     queryId: queryId,
@@ -52,7 +52,7 @@ class AnswerQuery extends Component {
         try {
             axios({
                 method: "get",
-                url: "http://localhost:5000/postAnswer",
+                url: "http://104.40.67.28:5000/postAnswer",
                 params: {
                     campusId: campusId,
                     username: username,
@@ -72,7 +72,7 @@ class AnswerQuery extends Component {
         try {
             axios({
                 method: "get",
-                url: "http://localhost:5000/deleteQuery",
+                url: "http://104.40.67.28:5000/deleteQuery",
                 params: {
                     queryId: queryId,
                 },
@@ -86,7 +86,7 @@ class AnswerQuery extends Component {
         try {
             axios({
                 method: "get",
-                url: "http://localhost:5000/deleteAnswer",
+                url: "http://104.40.67.28:5000/deleteAnswer",
                 params: {
                     answerId: answerId,
                 },
@@ -103,7 +103,7 @@ class AnswerQuery extends Component {
         try {
             axios({
                 method: "get",
-                url: "http://localhost:5000/likeCount",
+                url: "http://104.40.67.28:5000/likeCount",
                 params: {
                     username: username,
                     campusId: campusId,
@@ -125,7 +125,10 @@ class AnswerQuery extends Component {
                 <CampusNavbar />
                 <div className="content">
                     <div className="textarea">
-                        <div className="myquery" style={{background:"#F0FFFF"}}>
+                        <div
+                            className="myquery"
+                            style={{ background: "#F0FFFF" }}
+                        >
                             <span>{query}</span>
                             <span
                                 className="like"
@@ -162,14 +165,22 @@ class AnswerQuery extends Component {
                         <button
                             className="post1"
                             type="button"
-                            style={{background:"#be9fc9", padding:"5px", fontSize:"18px", fontWeight: "600"}}
+                            style={{
+                                background: "#be9fc9",
+                                padding: "5px",
+                                fontSize: "18px",
+                                fontWeight: "600",
+                            }}
                             onClick={() => this.reply()}
                         >
                             Reply
                         </button>
 
                         {answers.map((answer, index) => (
-                            <div className="replies" style={{ background: "#F0F0FF" }}>
+                            <div
+                                className="replies"
+                                style={{ background: "#F0F0FF" }}
+                            >
                                 {isAdmin ||
                                 answer.username === this.state.username ? (
                                     <span

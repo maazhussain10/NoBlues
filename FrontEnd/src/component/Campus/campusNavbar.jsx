@@ -11,7 +11,7 @@ class CampusNavbar extends Component {
         friends: [],
         friendUsername: "",
         depressedPortal: false,
-        isChatPage: false
+        isChatPage: false,
     };
 
     componentDidMount = async () => {
@@ -23,7 +23,10 @@ class CampusNavbar extends Component {
         });
 
         let url = window.location.pathname.split("/");
-        if (url[url.length - 1] === "chat" || url[url.length - 1] === "campushare" )
+        if (
+            url[url.length - 1] === "chat" ||
+            url[url.length - 1] === "campushare"
+        )
             await this.setState({ isChatPage: true });
         await this.getFriends();
     };
@@ -33,7 +36,7 @@ class CampusNavbar extends Component {
         try {
             axios({
                 method: "get",
-                url: "http://localhost:5000/getfriends",
+                url: "http://104.40.67.28:5000/getfriends",
                 params: {
                     campusId: campusId,
                     username: username,
@@ -52,7 +55,7 @@ class CampusNavbar extends Component {
         this.setState({
             depressedPortal: localStorage.getItem("depressedPortal"),
         });
-        if(this.state.isChatPage)
+        if (this.state.isChatPage)
             this.props.getChatDetails(this.depressedPortal);
     };
 
@@ -70,7 +73,7 @@ class CampusNavbar extends Component {
             textColor = "#FFFFFF";
             sidebarTheme = "#171717";
         } else {
-            if(document.getElementById("main"))
+            if (document.getElementById("main"))
                 document.getElementById("main").className = "maincontent";
             theme = "#FFFFFF";
             textColor = "#000000";
@@ -95,10 +98,11 @@ class CampusNavbar extends Component {
             return (
                 <div>
                     <nav
-                        className={
-                            "navbar navbar-expand-lg navbar-"
-                        }
-                        style={{ borderBottom: "1px solid grey",background: theme }}
+                        className={"navbar navbar-expand-lg navbar-"}
+                        style={{
+                            borderBottom: "1px solid grey",
+                            background: theme,
+                        }}
                     >
                         <div className="container-fluid">
                             <img
@@ -113,7 +117,7 @@ class CampusNavbar extends Component {
                                 style={{
                                     marginLeft: "10px",
                                     fontSize: "20px",
-                                    color: {theme},
+                                    color: { theme },
                                     textDecoration: "none",
                                     fontWeight: "bolder",
                                 }}
@@ -243,7 +247,10 @@ class CampusNavbar extends Component {
                                 className={
                                     "w3-sidebar w3-bar-block w3- w3-card"
                                 }
-                                style={{ width: "300px", background: sidebarTheme}}
+                                style={{
+                                    width: "300px",
+                                    background: sidebarTheme,
+                                }}
                             >
                                 <a
                                     href={`/${username}/${campusName}`}
@@ -269,9 +276,18 @@ class CampusNavbar extends Component {
                                 className={
                                     "w3-sidebar w3-bar-block w3- w3-card"
                                 }
-                                style={{ width: "15%", right: "0", background: sidebarTheme }}
+                                style={{
+                                    width: "15%",
+                                    right: "0",
+                                    background: sidebarTheme,
+                                }}
                             >
-                                <p className="friendsTitle" style={{color:textColor}}>Friends</p>
+                                <p
+                                    className="friendsTitle"
+                                    style={{ color: textColor }}
+                                >
+                                    Friends
+                                </p>
                                 {this.state.friends.map((friend, index) => (
                                     <button
                                         key={index}

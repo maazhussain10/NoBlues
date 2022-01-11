@@ -12,7 +12,7 @@ class Login extends Component {
         try {
             axios({
                 method: "post",
-                url: "http://localhost:5000/login",
+                url: "http://104.40.67.28:5000/login",
                 params: {
                     email: email,
                     password: password,

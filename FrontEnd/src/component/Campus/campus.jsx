@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import CampusNavbar from "./campusNavbar";
 import axios from "axios";
 import "../../css/campus.css";
-import { WithContext as ReactTags } from 'react-tag-input';
+import { WithContext as ReactTags } from "react-tag-input";
 
 const KeyCodes = {
     comma: 188,
@@ -16,16 +16,22 @@ class Campus extends Component {
         super(props);
         this.state = {
             tags: [],
-            suggestions: []
+            suggestions: [],
         };
         this.handleDelete = this.handleDelete.bind(this);
         this.handleAddition = this.handleAddition.bind(this);
         this.handleDrag = this.handleDrag.bind(this);
     }
 
-    state = { queries: "", campusId:"", username: "", campusName: "", depressedPortal: false };
+    state = {
+        queries: "",
+        campusId: "",
+        username: "",
+        campusName: "",
+        depressedPortal: false,
+    };
 
-    componentDidMount = async() => {
+    componentDidMount = async () => {
         await this.setState({
             username: localStorage.getItem("username"),
             campusName: localStorage.getItem("campusName"),
@@ -37,12 +43,12 @@ class Campus extends Component {
     handleDelete(i) {
         const { tags } = this.state;
         this.setState({
-         tags: tags.filter((tag, index) => index !== i),
+            tags: tags.filter((tag, index) => index !== i),
         });
     }
 
     async handleAddition(tag) {
-        await this.setState(state => ({ tags: [...state.tags, tag] }));
+        await this.setState((state) => ({ tags: [...state.tags, tag] }));
         console.log(this.state.tags);
     }
 
@@ -57,15 +63,17 @@ class Campus extends Component {
         this.setState({ tags: newTags });
     }
 
-    post = async() => {
-        await this.setState({ queries: document.getElementById("floatingTextarea").value});
+    post = async () => {
+        await this.setState({
+            queries: document.getElementById("floatingTextarea").value,
+        });
 
-        let { username, campusId,queries,tags } = this.state;
+        let { username, campusId, queries, tags } = this.state;
         console.log(username, campusId, queries, tags);
         try {
             axios({
                 method: "get",
-                url: "http://localhost:5000/postQuery",
+                url: "http://104.40.67.28:5000/postQuery",
                 params: {
                     campusId: campusId,
                     username: username,
@@ -96,19 +104,19 @@ class Campus extends Component {
                         ></textarea>
                         <div className="label">Enter Hashtags</div>
                         <div className="label">
-                        <ReactTags
-                            tags={tags}
-                            handleDelete={this.handleDelete}
-                            handleAddition={this.handleAddition}
-                            handleDrag={this.handleDrag}
-                            delimiters={delimiters}
+                            <ReactTags
+                                tags={tags}
+                                handleDelete={this.handleDelete}
+                                handleAddition={this.handleAddition}
+                                handleDrag={this.handleDrag}
+                                delimiters={delimiters}
                             />
                         </div>
 
                         <button
                             className="btn btn-success post"
                             type="button"
-                            style={{background:"#be9fc9"}}
+                            style={{ background: "#be9fc9" }}
                             onClick={() => this.post()}
                         >
                             Post

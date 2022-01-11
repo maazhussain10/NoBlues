@@ -7,7 +7,7 @@ import { Redirect } from "react-router";
 class ClearQueries extends Component {
     state = {
         queries: [],
-        queryArray:[],
+        queryArray: [],
         username: "",
         campusName: "",
         queryId: "",
@@ -24,14 +24,14 @@ class ClearQueries extends Component {
     };
 
     getQueries = () => {
-        let { username, campusId} = this.state;
+        let { username, campusId } = this.state;
         try {
             axios({
                 method: "get",
-                url: "http://localhost:5000/getQueries",
+                url: "http://104.40.67.28:5000/getQueries",
                 params: {
                     username: username,
-                    campusId: campusId
+                    campusId: campusId,
                 },
             }).then((response) => {
                 this.setState({ queries: response.data });
@@ -42,7 +42,11 @@ class ClearQueries extends Component {
     };
 
     answerQuery = (query) => {
-        this.setState({ queryId: query.queryId, query: query.query, queryArray:query });
+        this.setState({
+            queryId: query.queryId,
+            query: query.query,
+            queryArray: query,
+        });
     };
 
     render() {
@@ -64,16 +68,23 @@ class ClearQueries extends Component {
             return (
                 <div className="Dashboard">
                     <CampusNavbar />
-                    <div className="content" >
+                    <div className="content">
                         <div className="textarea">
                             {this.state.queries.map((query, index) => (
-                                <div className="query" key={index}  style={{background:"#F0FFFF"}}>
+                                <div
+                                    className="query"
+                                    key={index}
+                                    style={{ background: "#F0FFFF" }}
+                                >
                                     <span>
                                         <span> {query.username} </span>
                                         <span className="count">
                                             {query.answerCount}
                                         </span>
-                                        <span style={{background:"red"}} className="count">
+                                        <span
+                                            style={{ background: "red" }}
+                                            className="count"
+                                        >
                                             {query.likeCount}
                                         </span>
                                         <span className="date">

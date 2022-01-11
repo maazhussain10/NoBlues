@@ -45,7 +45,7 @@ class Chat extends Component {
             this.mesRef.current.scrollHeight - this.mesRef.current.clientHeight;
     };
 
-    selectedFriend = async (friend,friendUserId) => {
+    selectedFriend = async (friend, friendUserId) => {
         this.setState({ friendUsername: friend, friendUserId: friendUserId });
         this.getChatDetails(this.state.depressedPortal);
         this.scrollToBottom();
@@ -56,7 +56,7 @@ class Chat extends Component {
         try {
             axios({
                 method: "get",
-                url: "http://localhost:5000/getfriends",
+                url: "http://104.40.67.28:5000/getfriends",
                 params: {
                     campusId: campusId,
                     username: username,
@@ -77,12 +77,12 @@ class Chat extends Component {
         try {
             axios({
                 method: "get",
-                url: "http://localhost:5000/chatdetails",
+                url: "http://104.40.67.28:5000/chatdetails",
                 params: {
                     campusId: campusId,
                     username: username,
                     friendUsername: friendUsername,
-                    depressedPortal: depressedPortal
+                    depressedPortal: depressedPortal,
                 },
             }).then((response) => {
                 this.setState({ chatDetails: response.data });
@@ -98,13 +98,13 @@ class Chat extends Component {
         try {
             axios({
                 method: "get",
-                url: "http://localhost:5000/sendmessage",
+                url: "http://104.40.67.28:5000/sendmessage",
                 params: {
                     campusId: campusId,
                     username: username,
                     friendUsername: friendUsername,
                     message: message,
-                    depressedPortal: this.state.depressedPortal
+                    depressedPortal: this.state.depressedPortal,
                 },
             }).then((response) => {
                 document.getElementById("message").value = "";
@@ -118,7 +118,7 @@ class Chat extends Component {
 
     render() {
         let { depressedPortal } = this.state;
-        let theme, sidebarTheme,chatWindowTheme;
+        let theme, sidebarTheme, chatWindowTheme;
         if (depressedPortal === "true") {
             theme = "white";
             sidebarTheme = "#171717";
@@ -131,9 +131,7 @@ class Chat extends Component {
         console.log(sidebarTheme);
         return (
             <div>
-                <CampusNavbar
-                    getChatDetails={this.getChatDetails}
-                />
+                <CampusNavbar getChatDetails={this.getChatDetails} />
                 <div className="container">
                     <div className="messaging">
                         <div
@@ -149,13 +147,19 @@ class Chat extends Component {
                                     style={{ background: sidebarTheme }}
                                 >
                                     <div className="recent_heading">
-                                        <h4  style={{ fontWeight: "bold", color:"#a674b8" }}>My Friends</h4>
+                                        <h4
+                                            style={{
+                                                fontWeight: "bold",
+                                                color: "#a674b8",
+                                            }}
+                                        >
+                                            My Friends
+                                        </h4>
                                     </div>
                                     <div className="srch_bar">
                                         <div className="stylish-input-group">
                                             <span className="input-group-addon">
-                                                <button type="button">
-                                                </button>
+                                                <button type="button"></button>
                                             </span>{" "}
                                         </div>
                                     </div>
@@ -170,7 +174,8 @@ class Chat extends Component {
                                             }}
                                             onClick={() =>
                                                 this.selectedFriend(
-                                                    friend.username,friend.userId
+                                                    friend.username,
+                                                    friend.userId
                                                 )
                                             }
                                         >
@@ -183,23 +188,34 @@ class Chat extends Component {
                                                     />{" "}
                                                 </div>
                                                 <div className="chat_ib">
-                                                    {this.state.depressedPortal === "true" ?
+                                                    {this.state
+                                                        .depressedPortal ===
+                                                    "true" ? (
                                                         <h5
-                                                            style={{ color: theme }}
+                                                            style={{
+                                                                color: theme,
+                                                            }}
                                                         >
-                                                            {friend.userId.slice(0, 8)}{" "}
+                                                            {friend.userId.slice(
+                                                                0,
+                                                                8
+                                                            )}{" "}
                                                             <span className="chat_date">
                                                                 Dec 25
                                                             </span>
-                                                        </h5> :
+                                                        </h5>
+                                                    ) : (
                                                         <h5
-                                                            style={{ color: theme }}
+                                                            style={{
+                                                                color: theme,
+                                                            }}
                                                         >
                                                             {friend.username}{" "}
                                                             <span className="chat_date">
                                                                 Dec 25
                                                             </span>
-                                                        </h5>}
+                                                        </h5>
+                                                    )}
                                                 </div>
                                             </div>
                                         </div>
@@ -222,9 +238,31 @@ class Chat extends Component {
                                         </h1>
                                     ) : (
                                         <>
-                                                {this.state.depressedPortal === "true" ?
-                                                    <h2 style={{ fontWeight: "bold", color:"#a674b8", marginBottom:"20px" }} >{this.state.friendUserId.slice(0,8)}</h2> :
-                                                    <h2 style={{ fontWeight: "bold", color:"#a674b8", marginBottom:"20px" }}>{this.state.friendUsername}</h2>}
+                                            {this.state.depressedPortal ===
+                                            "true" ? (
+                                                <h2
+                                                    style={{
+                                                        fontWeight: "bold",
+                                                        color: "#a674b8",
+                                                        marginBottom: "20px",
+                                                    }}
+                                                >
+                                                    {this.state.friendUserId.slice(
+                                                        0,
+                                                        8
+                                                    )}
+                                                </h2>
+                                            ) : (
+                                                <h2
+                                                    style={{
+                                                        fontWeight: "bold",
+                                                        color: "#a674b8",
+                                                        marginBottom: "20px",
+                                                    }}
+                                                >
+                                                    {this.state.friendUsername}
+                                                </h2>
+                                            )}
                                             {this.state.chatDetails.map(
                                                 (chatDetail, index) =>
                                                     this.state.username ===
@@ -233,8 +271,22 @@ class Chat extends Component {
                                                             key={index}
                                                             className="outgoing_msg"
                                                         >
-                                                            <div className="sent_msg" style={{ fontWeight: "bold", marginBottom:"5px" }}>
-                                                                <p style={{ background:"#5a3269", color: chatWindowTheme}}>
+                                                            <div
+                                                                className="sent_msg"
+                                                                style={{
+                                                                    fontWeight:
+                                                                        "bold",
+                                                                    marginBottom:
+                                                                        "5px",
+                                                                }}
+                                                            >
+                                                                <p
+                                                                    style={{
+                                                                        background:
+                                                                            "#5a3269",
+                                                                        color: chatWindowTheme,
+                                                                    }}
+                                                                >
                                                                     {
                                                                         chatDetail.message
                                                                     }
@@ -262,9 +314,23 @@ class Chat extends Component {
                                                                     alt="sunil"
                                                                 />{" "}
                                                             </div>
-                                                            <div className="received_msg" >
-                                                                <div className="received_withd_msg" style={{ fontWeight: "bold", marginBottom:"5px" }}>
-                                                                    <p style={{ background:"#c9a5d6", color: theme}}>
+                                                            <div className="received_msg">
+                                                                <div
+                                                                    className="received_withd_msg"
+                                                                    style={{
+                                                                        fontWeight:
+                                                                            "bold",
+                                                                        marginBottom:
+                                                                            "5px",
+                                                                    }}
+                                                                >
+                                                                    <p
+                                                                        style={{
+                                                                            background:
+                                                                                "#c9a5d6",
+                                                                            color: theme,
+                                                                        }}
+                                                                    >
                                                                         {
                                                                             chatDetail.message
                                                                         }
@@ -301,11 +367,11 @@ class Chat extends Component {
                                         <button
                                             onClick={() => this.sendMessage()}
                                             className="msg_send_btn"
-                                            style={{ background:"#39004f"}}
+                                            style={{ background: "#39004f" }}
                                             type="button"
                                         >
                                             <i
-                                                style={{ color:"#FFFFFF"}}
+                                                style={{ color: "#FFFFFF" }}
                                                 className="far fa-paper-plane"
                                                 aria-hidden="true"
                                             ></i>
