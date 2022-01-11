@@ -33,7 +33,7 @@ class AnswerQuery extends Component {
         try {
             axios({
                 method: "get",
-                url: "http://104.40.67.28:5000/getQueryAnswers",
+                url: "https://noblues.azurewebsites.net/getQueryAnswers",
                 params: {
                     username: username,
                     queryId: queryId,
@@ -52,7 +52,7 @@ class AnswerQuery extends Component {
         try {
             axios({
                 method: "get",
-                url: "http://104.40.67.28:5000/postAnswer",
+                url: "https://noblues.azurewebsites.net/postAnswer",
                 params: {
                     campusId: campusId,
                     username: username,
@@ -72,7 +72,7 @@ class AnswerQuery extends Component {
         try {
             axios({
                 method: "get",
-                url: "http://104.40.67.28:5000/deleteQuery",
+                url: "https://noblues.azurewebsites.net/deleteQuery",
                 params: {
                     queryId: queryId,
                 },
@@ -86,7 +86,7 @@ class AnswerQuery extends Component {
         try {
             axios({
                 method: "get",
-                url: "http://104.40.67.28:5000/deleteAnswer",
+                url: "https://noblues.azurewebsites.net/deleteAnswer",
                 params: {
                     answerId: answerId,
                 },
@@ -103,7 +103,7 @@ class AnswerQuery extends Component {
         try {
             axios({
                 method: "get",
-                url: "http://104.40.67.28:5000/likeCount",
+                url: "https://noblues.azurewebsites.net/likeCount",
                 params: {
                     username: username,
                     campusId: campusId,

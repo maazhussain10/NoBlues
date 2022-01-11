@@ -29,7 +29,7 @@ class MyQueries extends Component {
         try {
             axios({
                 method: "get",
-                url: "http://104.40.67.28:5000/getMyQueries",
+                url: "https://noblues.azurewebsites.net/getMyQueries",
                 params: {
                     campusId: campusId,
                     username: username,
@@ -46,7 +46,7 @@ class MyQueries extends Component {
         try {
             axios({
                 method: "get",
-                url: "http://104.40.67.28:5000/deleteQuery",
+                url: "https://noblues.azurewebsites.net/deleteQuery",
                 params: {
                     queryId: queryId,
                 },

@@ -26,7 +26,7 @@ class Signup extends Component {
             try {
                 axios({
                     method: "get",
-                    url: "http://104.40.67.28:5000/getCampus",
+                    url: "https://noblues.azurewebsites.net/getCampus",
                     params: {
                         campusQKey: this.state.campusQKey,
                     },
@@ -73,7 +73,7 @@ class Signup extends Component {
         try {
             axios({
                 method: "post",
-                url: "http://104.40.67.28:5000/signup",
+                url: "https://noblues.azurewebsites.net/signup",
                 params: {
                     firstName: firstName,
                     lastName: lastName,

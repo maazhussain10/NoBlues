@@ -12,7 +12,7 @@ class Login extends Component {
         try {
             axios({
                 method: "post",
-                url: "http://104.40.67.28:5000/login",
+                url: "https://noblues.azurewebsites.net/login",
                 params: {
                     email: email,
                     password: password,
@@ -45,9 +45,7 @@ class Login extends Component {
                                 <div className="col-lg-8 col-md-12">
                                     <div className="card h-100  w-100 shadow-lg">
                                         <form className="form">
-                                            <h1 className="loginfont">
-                                                Login
-                                            </h1>
+                                            <h1 className="loginfont">Login</h1>
                                             <div className="input-group mb-4 flex-nowrap">
                                                 <span
                                                     className="input-group-text"

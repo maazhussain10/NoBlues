@@ -28,7 +28,7 @@ class ClearQueries extends Component {
         try {
             axios({
                 method: "get",
-                url: "http://104.40.67.28:5000/getQueries",
+                url: "https://noblues.azurewebsites.net/getQueries",
                 params: {
                     username: username,
                     campusId: campusId,
