@@ -10,17 +10,14 @@ class CampuShare extends Component {
                 <CampusNavbar />
                 <div
                     className="row d-flex justify-content-center align-items-center"
-                    style={{ borderTop: "1px solid grey"}}
+                    style={{ borderTop: "1px solid grey" }}
                 >
                     <div className="col">
                         <h3 className="title">
-                            Share your old stuffs to your juniors
+                            Sell/Buy used products at reduced prices
                         </h3>
                         <p className="description">
-                            Not want to waste your new books to go in vain, sell
-                            it to your juniors belonging to the same
-                            organization for the price you want. Buy the books
-                            from our site without worrying about anything.
+                            Don't want your almost-new books to go in vain? Sell them to your juniors using our campus-share feature, scams are hard to pull when both the buyer and seller belongs to the same campus!
                         </p>
                     </div>
                     <div className="col">
