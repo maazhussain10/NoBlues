@@ -47,4 +47,5 @@ A new approach to dealing with mental well being, Instead of isolating depressed
 >3. Now select the campus and go inside your campus to post your own queries regarding the organization, or clear some queries of other users from the options given in sidebar.
 >4. Click on the chat to interact with members belonging to your organization.
 
+![image](https://user-images.githubusercontent.com/85546391/150537233-e79cbcb7-7d6d-434e-afc4-cbd1015ad517.png)
 
