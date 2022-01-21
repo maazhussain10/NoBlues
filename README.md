@@ -8,15 +8,15 @@ It’s 2022 and mental health is still viewed as an imaginary concept in many ho
 
 A new approach to dealing with mental well being, Instead of isolating depressed individuals and pushing them towards therapy, we’re going to create an interactive website and let organizations register themselves with us and change the lifestyle of people. A website/app where people with mental stress and depression can chat with ones facing similar issues, we're planning on connecting the ones from same universities/work place so that their is high chance the other person can relate to it. We are also planning on having an algorithm that's trained based on datasets procured the posts of people who have committed suicide in the past, and if our algorithm finds that someone who's chatting in our website is going down the same path we will a psychologist would be assigned to them, who would chat counsel them, under the pretense of being a random user.
 
-Homepage
+### Homepage
 ![image](https://user-images.githubusercontent.com/85546391/150538224-e33886ed-1f87-41cf-a072-992c74c81900.png)
-Dashboard
+### Dashboard
 ![image](https://user-images.githubusercontent.com/85546391/150538669-dca0c67b-c00a-4fbc-88d0-5955ad1590c2.png)
-Queries
+### Queries
 ![image](https://user-images.githubusercontent.com/85546391/150538838-c273a069-cf60-4e13-ae55-38a3dcbdfe2e.png)
-Chat 
+### Chat 
 ![image](https://user-images.githubusercontent.com/85546391/150539121-666ed07b-adcc-430e-85a5-5b743187da22.png)
-Depressed Portal
+### Depressed Portal
 ![image](https://user-images.githubusercontent.com/85546391/150539060-e3e670f6-a7f8-46e7-94f7-5d02d2a90924.png)
 
 
