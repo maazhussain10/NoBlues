@@ -15,9 +15,9 @@ A new approach to dealing with mental well being, Instead of isolating depressed
 ### Queries
 ![image](https://user-images.githubusercontent.com/85546391/150538838-c273a069-cf60-4e13-ae55-38a3dcbdfe2e.png)
 ### Chat 
-![image](https://user-images.githubusercontent.com/85546391/150539121-666ed07b-adcc-430e-85a5-5b743187da22.png)
+![image](https://user-images.githubusercontent.com/61106740/150539691-360e9462-5ce7-4afa-b795-af876d381ec5.png)
 ### Depressed Portal
-![image](https://user-images.githubusercontent.com/85546391/150539060-e3e670f6-a7f8-46e7-94f7-5d02d2a90924.png)
+![image](https://user-images.githubusercontent.com/61106740/150539729-e55dc799-f427-4307-bbb7-945807e06a13.png)
 
 
 
@@ -36,13 +36,20 @@ A new approach to dealing with mental well being, Instead of isolating depressed
 
 ![image](https://user-images.githubusercontent.com/61106740/150537537-ee89af4a-8240-4523-9390-33cc6b8ddedc.png)
 
+## Target Audience
+
+![image](https://user-images.githubusercontent.com/61106740/150540002-0a308c60-9610-4078-ba09-c9b2d9f56e89.png)
+
 ## [Link to the Project Demo](https://white-mushroom-06d462210.azurestaticapps.net/)
 
 ## [Link to the Demo Video](https://www.youtube.com/watch?v=NemncNsNZcE)
 
- ## Business Analysis
+## Business Analysis
+
 ![image](https://user-images.githubusercontent.com/61106740/150537820-e36575ac-8934-4ab1-bfa2-7221530abdb8.png)
+
 ## Revenue Model
+
 ![image](https://user-images.githubusercontent.com/61106740/150537764-9bb67507-47d0-4645-8690-74079e0b3815.png)
 
 
@@ -71,6 +78,3 @@ A new approach to dealing with mental well being, Instead of isolating depressed
 >>b. Password: User@123456
 >3. Now select the campus and go inside your campus to post your own queries regarding the organization, or clear some queries of other users from the options given in sidebar.
 >4. Click on the chat to interact with members belonging to your organization.
-
-
-
