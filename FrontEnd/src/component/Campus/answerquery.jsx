@@ -133,6 +133,7 @@ class AnswerQuery extends Component {
                             <span
                                 className="like"
                                 onClick={() => this.like("query", queryId)}
+                                style={{ color: "black" }}
                             >
                                 {queryArray.likeCount}{" "}
                                 {queryArray.userLikeStatus ? (
@@ -150,6 +151,7 @@ class AnswerQuery extends Component {
                             {isAdmin ? (
                                 <span
                                     className="delete"
+                                    style={{ color: "#000000" }}
                                     onClick={() => this.deleteQuery(queryId)}
                                 >
                                     <i className="fas fa-trash"></i>
@@ -185,6 +187,7 @@ class AnswerQuery extends Component {
                                 answer.username === this.state.username ? (
                                     <span
                                         className="deleteanswer"
+                                        style={{ color: "#000000" }}
                                         onClick={() =>
                                             this.deleteAnswer(answer.answerId)
                                         }
@@ -197,16 +200,17 @@ class AnswerQuery extends Component {
                                     onClick={() =>
                                         this.like("answer", answer.answerId)
                                     }
+                                    style={{ color: "#b80505" }}
                                 >
                                     {answer.likeCount}{" "}
                                     {answer.userLikeStatus ? (
                                         <i
-                                            style={{ color: "red" }}
+                                            style={{ color: "#b80505" }}
                                             className="fas fa-star"
                                         ></i>
                                     ) : (
                                         <i
-                                            style={{ color: "black" }}
+                                            style={{ color: "grey" }}
                                             className="fas fa-star"
                                         ></i>
                                     )}

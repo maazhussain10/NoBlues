@@ -8,12 +8,33 @@ import registerCampus from "../../images/registerCampus.svg";
 import campusShare from "../../images/CampusShare.svg";
 import Navbar from "./navbar";
 import Footer from "./footer";
+import Loader from "./loader";
 class HomePage extends Component {
-    state = {};
-    componentDidMount() {
-        localStorage.clear();
+    state = {
+        loading: true,
+    };
+
+    async componentDidMount() {
+        console.log(localStorage.getItem("loading"));
+        if (localStorage.getItem("loading") === "false") {
+            if(localStorage.getItem("loading")==="false")
+            this.setState({ loading: false});
+        }
+        this.fakeRequest().then(() => {
+                this.setState({ loading: false });
+                localStorage.setItem("loading", false);
+        });
     }
+
+    fakeRequest = () => {
+        return new Promise((resolve) => setTimeout(() => resolve(), 20000));
+    };
+
     render() {
+        if (this.state.loading) {
+            return <Loader/>;
+        }
+
         return (
             <div>
                 <Navbar />
@@ -22,7 +43,8 @@ class HomePage extends Component {
                         <div className="col">
                             <h1 className="heading">NoBlues</h1>
                             <h3 className="tagline">
-                                We build technology solutions that work on driving away blues, increase campus engagement
+                                We build technology solutions that work on
+                                driving away blues, increase campus engagement
                                 and make mental health a priority.
                             </h3>
                         </div>
@@ -52,7 +74,11 @@ class HomePage extends Component {
                             Belong to more than one campus
                         </h3>
                         <p className="description">
-                            NoBlues gives individuals the chance of registering for more than a single campus! They can choose which campus they feel like engaging in from the dashboard.                    </p>
+                            NoBlues gives individuals the chance of registering
+                            for more than a single campus! They can choose which
+                            campus they feel like engaging in from the
+                            dashboard.{" "}
+                        </p>
                     </div>
                 </div>
 
@@ -61,10 +87,13 @@ class HomePage extends Component {
                     style={{ background: "#33325A" }}
                 >
                     <div className="col">
-                        <h3 className="title" style={{ color: "#F0FFFF" }}>Visit our Depressed Portal</h3>
+                        <h3 className="title" style={{ color: "#F0FFFF" }}>
+                            Visit our Depressed Portal
+                        </h3>
                         <p className="description" style={{ color: "#FFFFFF" }}>
-                            Our Depressed Portal is there for you anytime you're feeling blue,
-                            vent out your frustations to members of your campus(who could relate to it) while being
+                            Our Depressed Portal is there for you anytime you're
+                            feeling blue, vent out your frustations to members
+                            of your campus(who could relate to it) while being
                             anonymous.
                         </p>
                     </div>
@@ -89,13 +118,12 @@ class HomePage extends Component {
                         />
                     </div>
                     <div className="col">
-                        <h3 className="title">
-                            Get to know your new Campus
-                        </h3>
+                        <h3 className="title">Get to know your new Campus</h3>
                         <p className="description">
                             Being in a new place has always been nerve wrecking,
-                            NoBlues brings in a change by letting you mingle with your campusmates, get to know them, ask queries about how things
-                            work in your campus.
+                            NoBlues brings in a change by letting you mingle
+                            with your campusmates, get to know them, ask queries
+                            about how things work in your campus.
                         </p>
                     </div>
                 </div>
@@ -105,10 +133,15 @@ class HomePage extends Component {
                     style={{ borderTop: "1px solid grey" }}
                 >
                     <div className="col">
-                        <h3 className="title">Sell/Buy used products at reduced prices</h3>
+                        <h3 className="title">
+                            Sell/Buy used products at reduced prices
+                        </h3>
                         <p className="description">
-                            Don't want to waste your almost-new books to go in vain?
-                            sell it to your juniors using our campus-share feature, malpractices would be hard to pull when both the buyers and sellers belong to the same campus!
+                            Don't want to waste your almost-new books to go in
+                            vain? sell it to your juniors using our campus-share
+                            feature, malpractices would be hard to pull when
+                            both the buyers and sellers belong to the same
+                            campus!
                         </p>
                     </div>
                     <div className="col">
@@ -134,10 +167,11 @@ class HomePage extends Component {
                     <div className="col">
                         <h3 className="title">Register your Organization</h3>
                         <p className="description">
-                            We understand that not all organisations are the same. That's
-                            why our solutions come with a range of fully customisable
-                            options, to enhance your customers' experience, as well
-                            as meet your business and brand objectives.
+                            We understand that not all organisations are the
+                            same. That's why our solutions come with a range of
+                            fully customisable options, to enhance your
+                            customers' experience, as well as meet your business
+                            and brand objectives.
                         </p>
                     </div>
                 </div>

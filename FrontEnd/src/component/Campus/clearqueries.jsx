@@ -78,17 +78,19 @@ class ClearQueries extends Component {
                                 >
                                     <span>
                                         <span> {query.username} </span>
-                                        <span className="count">
-                                            {query.answerCount}
+                                        <span style={{float:"right",marginLeft:"10px"}}>
+                                            {query.likeCount}{" "}
+                                                <i
+                                                    style={{ color: "red" }}
+                                                    className="fas fa-heart"
+                                                ></i>
                                         </span>
-                                        <span
-                                            style={{ background: "red" }}
-                                            className="count"
-                                        >
-                                            {query.likeCount}
-                                        </span>
-                                        <span className="date">
-                                            {query.date.slice(0, 10)}
+                                        <span style={{float:"right",marginLeft:"10px"}}>
+                                            {query.answerCount}{" "}
+                                                <i
+                                                    style={{ color: "#BE9FCC" }}
+                                                    className="fas fa-reply"
+                                                ></i>
                                         </span>
                                     </span>
                                     <div className="question">
@@ -100,6 +102,9 @@ class ClearQueries extends Component {
                                         >
                                             {query.query}{" "}
                                         </span>{" "}
+                                        <span className="date" style={{fontSize:"16px", fontWeight:"600"}}>
+                                            {query.date.slice(0, 10)}
+                                        </span>
                                     </div>
                                 </div>
                             ))}

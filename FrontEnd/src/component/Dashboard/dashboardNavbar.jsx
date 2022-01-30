@@ -6,35 +6,37 @@ class DashboardNavbar extends Component {
     componentDidMount = () => {
         this.setState({ username: localStorage.getItem("username") });
     };
+
+    handleLogout = () => {
+        localStorage.clear();
+    };
     render() {
         return (
             <div>
                 <nav
                     className="navbar navbar-expand-lg navbar-light bg-light"
-                    style={{ borderBottom: "1px solid grey" ,margin: "0px"}}
-
+                    style={{ borderBottom: "1px solid grey", margin: "0px" }}
                 >
                     <div className="container-fluid">
-                        
-                            <img
-                                src={Logo}
-                                alt="NoBlues"
-                                height="40px"
-                                width="40px"
-                            />{" "}
-                            <a
-                                className="navbar-brand"
-                                href={`/${this.state.username}/dashboard`}
-                                style={{
-                                    marginLeft: "10px",
-                                    fontSize: "20px",
-                                    color: "#000000",
-                                    textDecoration: "none",
-                                    fontWeight: "bolder",
-                                }}
-                            >
-                                NoBlues
-                            </a>
+                        <img
+                            src={Logo}
+                            alt="NoBlues"
+                            height="40px"
+                            width="40px"
+                        />{" "}
+                        <a
+                            className="navbar-brand"
+                            href={`/${this.state.username}/dashboard`}
+                            style={{
+                                marginLeft: "10px",
+                                fontSize: "20px",
+                                color: "#000000",
+                                textDecoration: "none",
+                                fontWeight: "bolder",
+                            }}
+                        >
+                            NoBlues
+                        </a>
                         <button
                             className="navbar-toggler"
                             type="button"
@@ -76,6 +78,7 @@ class DashboardNavbar extends Component {
                                             className="nav-link active"
                                             aria-current="page"
                                             href="/"
+                                            onClick={() => this.handleLogout()}
                                         >
                                             Logout
                                         </a>

@@ -107,6 +107,7 @@ class MyQueries extends Component {
                                     <div className="col-md-4 ">
                                         <span
                                             className="delete"
+                                            style={{ color: "#000000" }}
                                             onClick={() =>
                                                 this.deleteQuery(
                                                     myQuery.queryId
@@ -115,16 +116,21 @@ class MyQueries extends Component {
                                         >
                                             <i className="fas fa-trash"></i>
                                         </span>
-                                        <span className="count">
-                                            {myQuery.answerCount}
+                                        <span style={{float:"right",marginLeft:"10px"}}>
+                                            {myQuery.answerCount}{" "}
+                                                <i
+                                                    style={{ color: "#BE9FCC" }}
+                                                    className="fas fa-reply"
+                                                ></i>
                                         </span>
-                                        <span
-                                            style={{ background: "red" }}
-                                            className="count"
-                                        >
-                                            {myQuery.likeCount}
+                                        <span style={{float:"right",marginLeft:"10px"}}>
+                                            {myQuery.likeCount}{" "}
+                                                <i
+                                                    style={{ color: "red" }}
+                                                    className="fas fa-heart"
+                                                ></i>
                                         </span>
-                                        <span className="date">
+                                        <span className="date" style={{fontSize:"16px", fontWeight:"600"}}>
                                             {myQuery.date.slice(0, 10)}
                                         </span>
                                     </div>

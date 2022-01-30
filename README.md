@@ -75,6 +75,6 @@ A new approach to dealing with mental well being, Instead of isolating depressed
 >2. Use the following login credentials:
 >>a. Email: nobluesapp@gmail.com
 
->>b. Password: User@123456
+>>b. Password: admin@123
 >3. Now select the campus and go inside your campus to post your own queries regarding the organization, or clear some queries of other users from the options given in sidebar.
 >4. Click on the chat to interact with members belonging to your organization.

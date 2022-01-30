@@ -9,7 +9,7 @@ class Footer extends Component {
                         <div class="row mt-3">
                             <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
                                 <h6 class="text-uppercase font-weight-bold">
-                                    Campus Q
+                                    NoBlues
                                 </h6>
                                 <hr
                                     class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto"
@@ -79,13 +79,13 @@ class Footer extends Component {
                                 </p>
                                 <p>
                                     <i class="fas fa-envelope mr-3"></i>{" "}
-                                    campusq@gmail.com
+                                    nobluesapp@gmail.com
                                 </p>
                                 <p>
-                                    <i class="fas fa-phone mr-3"></i> +91 99411 65707
+                                    <i class="fab fa-youtube mr-3"></i> UCcJxx0oeS2epUlU4n0IzIBQ
                                 </p>
                                 <p>
-                                    <i class="fas fa-print mr-3"></i> @campus_q
+                                    <i class="fab fa-instagram-square mr-3"></i> @NoBlues
                                 </p>
                             </div>
                         </div>
@@ -93,7 +93,7 @@ class Footer extends Component {
 
                     <div class="footer-copyright text-center py-3">
                     Copyright © 2022:
-                        <a href="https://mdbootstrap.com/">{" "} CampusQ</a>
+                        <a href="https://mdbootstrap.com/">{" "} NoBlues</a>
                     </div>
                 </footer>
             </div>

@@ -44,7 +44,7 @@ class Pricing extends Component {
                                                 src="https://img.icons8.com/external-kiranshastry-solid-kiranshastry/25/000000/external-group-cyber-security-kiranshastry-solid-kiranshastry.png"
                                                 alt=""
                                             />{" "}
-                                            250 Participants Club
+                                            500 Participants Club
                                         </li>
                                         <li className="list-group-item">
                                             <i className="fas fa-users"></i>{" "}
@@ -88,15 +88,15 @@ class Pricing extends Component {
                                             <small>Large Business</small>
                                             <br />
                                             <br />
-                                            <span className="h2" style={{color:"#be9fc9"}}>$25</span>
+                                            <span className="h2" style={{color:"#be9fc9"}}>$499</span>
                                             /month
                                             <br />
                                             <br />
                                         </div>
                                         <p className="card-text">
-                                            The standard plan allows 1000
+                                            The standard plan allows 1500
                                             Participants for free and
-                                            $0.05/person beyond that.
+                                            $0.55/person beyond that.
                                         </p>
                                     </div>
 
@@ -157,13 +157,13 @@ class Pricing extends Component {
                                             <small>Large Companies</small>
                                             <br />
                                             <br />
-                                            <span className="h2" style={{color:"#be9fc9"}}>$75</span>
+                                            <span className="h2" style={{color:"#be9fc9"}}>$899</span>
                                             /month
                                             <br />
                                             <br />
                                         </div>
                                         <p className="card-text">
-                                            The premium plan allows 5000+
+                                            The premium plan allows unlimited
                                             participants to be in connection
                                             with CampusQ
                                         </p>
@@ -175,7 +175,7 @@ class Pricing extends Component {
                                                 src="https://img.icons8.com/external-kiranshastry-solid-kiranshastry/25/000000/external-group-cyber-security-kiranshastry-solid-kiranshastry.png"
                                                 alt=""
                                             />{" "}
-                                            5000 Participants Club
+                                            Unlimited Participants Club
                                         </li>
                                         <li className="list-group-item">
                                             <i className="fas fa-users"></i>{" "}

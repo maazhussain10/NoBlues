@@ -60,36 +60,31 @@ class Signup extends Component {
             password,
             confirmPassword,
         } = this.state;
-        console.log(
-            firstName,
-            lastName,
-            username,
-            dob,
-            email,
-            campusQKey,
-            password,
-            confirmPassword
-        );
-        try {
-            axios({
-                method: "post",
-                url: "https://noblues.azurewebsites.net/signup",
-                params: {
-                    firstName: firstName,
-                    lastName: lastName,
-                    username: username,
-                    dob: dob,
-                    campusQKey: campusQKey,
-                    email: email,
-                    password: password,
-                    confirmpassword: confirmPassword,
-                },
-            }).then((response) => {
-                this.setState({ signupStatus: true });
-                alert("Account Created Successfully");
-            });
-        } catch (e) {
-            console.log(e);
+        if (!(firstName, lastName, username, dob, email, campusQKey, password, confirmPassword === "")) {
+            try {
+                axios({
+                    method: "post",
+                    url: "https://noblues.azurewebsites.net/signup",
+                    params: {
+                        firstName: firstName,
+                        lastName: lastName,
+                        username: username,
+                        dob: dob,
+                        campusQKey: campusQKey,
+                        email: email,
+                        password: password,
+                        confirmpassword: confirmPassword,
+                    },
+                }).then((response) => {
+                    this.setState({ signupStatus: true });
+                    alert("Account Created Successfully");
+                });
+            } catch (e) {
+                console.log(e);
+            }
+        }
+        else {
+            alert("Please, fill in all the details!")
         }
     };
 
@@ -121,6 +116,7 @@ class Signup extends Component {
                                                     <i className="fas fa-user-graduate"></i>
                                                 </span>
                                                 <input
+                                                    required
                                                     id="firstname"
                                                     type="text"
                                                     className="form-control form-control-lg"
@@ -137,6 +133,7 @@ class Signup extends Component {
                                                     <i className="fas fa-address-card"></i>
                                                 </span>
                                                 <input
+                                                    required
                                                     id="lastname"
                                                     type="text"
                                                     className="form-control form-control-lg"
@@ -156,6 +153,7 @@ class Signup extends Component {
                                                     <i className="fas fa-user-tag"></i>
                                                 </span>
                                                 <input
+                                                    required
                                                     id="username"
                                                     type="text"
                                                     className="form-control form-control-lg"
@@ -172,6 +170,7 @@ class Signup extends Component {
                                                     <i className="far fa-calendar-alt"></i>
                                                 </span>
                                                 <input
+                                                    required
                                                     id="dob"
                                                     type="date"
                                                     className="form-control form-control-lg"
@@ -191,6 +190,7 @@ class Signup extends Component {
                                                     <i className="fas fa-key"></i>
                                                 </span>
                                                 <input
+                                                    required
                                                     id="campusQKey"
                                                     type="text"
                                                     minLength="8"
@@ -226,6 +226,7 @@ class Signup extends Component {
                                                 <i className="fas fa-at"></i>
                                             </span>
                                             <input
+                                                required
                                                 id="email"
                                                 type="email"
                                                 className="form-control form-control-lg"
@@ -243,6 +244,7 @@ class Signup extends Component {
                                                     <i className="fas fa-unlock-alt"></i>
                                                 </span>
                                                 <input
+                                                    required
                                                     id="password"
                                                     type="password"
                                                     className="form-control form-control-lg"
@@ -259,6 +261,7 @@ class Signup extends Component {
                                                     <i className="fas fa-lock"></i>
                                                 </span>
                                                 <input
+                                                    required
                                                     id="confirmpassword"
                                                     type="password"
                                                     className="form-control form-control-lg"

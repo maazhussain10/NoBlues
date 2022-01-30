@@ -6,6 +6,11 @@ import Navbar from "./navbar";
 
 class Login extends Component {
     state = { loginauth: false, username: "" };
+
+    componentDidMount() {
+        const el = document.querySelector(".loader-container");
+    }
+
     Login = () => {
         let email = document.getElementById("email").value;
         let password = document.getElementById("password").value;
@@ -18,23 +23,30 @@ class Login extends Component {
                     password: password,
                 },
             }).then((response) => {
-                if (response.data)
+                if (response.data) {
                     this.setState({
                         loginauth: true,
                         username: response.data[0].username,
                     });
+                } else {
+                    alert("Invalid Email or Password");
+                }
             });
         } catch (e) {
             console.log(e);
         }
     };
+
     redirectToDashboard = (username) => {
         return <Redirect to={`/${username}/dashboard`} />;
     };
+
     render() {
         if (this.state.loginauth) {
             localStorage.setItem("username", this.state.username);
-            return <Redirect to={`/${this.state.username}/dashboard`} />;
+            return (
+                    <Redirect to={`/${this.state.username}/dashboard`} />
+            );
         } else {
             return (
                 <div className="divn">
