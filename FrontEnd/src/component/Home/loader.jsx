@@ -14,7 +14,7 @@ class Loader extends Component {
                 ></div>
                 <div class="col-md-6" style={{ marginLeft: "40px" }}>
                     <img
-                        src="http://localhost:3000/static/media/Logo.cfc6f0dd.png"
+                        src="https://white-mushroom-06d462210.azurestaticapps.net/static/media/Logo.cfc6f0dd.png"
                         alt="NoBlues Logo"
                         style={{width:"80px", height:"80px"}}
                     />
