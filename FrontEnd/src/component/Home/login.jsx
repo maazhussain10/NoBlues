@@ -7,10 +7,6 @@ import Navbar from "./navbar";
 class Login extends Component {
     state = { loginauth: false, username: "" };
 
-    componentDidMount() {
-        const el = document.querySelector(".loader-container");
-    }
-
     Login = () => {
         let email = document.getElementById("email").value;
         let password = document.getElementById("password").value;
