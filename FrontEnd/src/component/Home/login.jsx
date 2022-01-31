@@ -5,9 +5,10 @@ import { Redirect } from "react-router";
 import Navbar from "./navbar";
 
 class Login extends Component {
-    state = { loginauth: false, username: "" };
+    state = { loginauth: false, username: "", load: false };
 
     Login = () => {
+        this.setState({ load: true });
         let email = document.getElementById("email").value;
         let password = document.getElementById("password").value;
         try {
@@ -23,9 +24,14 @@ class Login extends Component {
                     this.setState({
                         loginauth: true,
                         username: response.data[0].username,
+                        load:false
                     });
                 } else {
+                    this.setState({
+                        load:false
+                    });
                     alert("Invalid Email or Password");
+
                 }
             });
         } catch (e) {
@@ -40,9 +46,7 @@ class Login extends Component {
     render() {
         if (this.state.loginauth) {
             localStorage.setItem("username", this.state.username);
-            return (
-                    <Redirect to={`/${this.state.username}/dashboard`} />
-            );
+            return <Redirect to={`/${this.state.username}/dashboard`} />;
         } else {
             return (
                 <div className="divn">
@@ -93,6 +97,20 @@ class Login extends Component {
                                             >
                                                 Login
                                             </button>
+                                            {this.state.load ? (
+                                                <div className="row d-flex justify-content-center align-items-center h-100">
+                                                <div
+                                                    className="spinner-border"
+                                                    role="status"
+                                                    style={{color:"#BE9FC9",margin:"20px"}}
+                                                >
+                                                    <span className="sr-only">
+                                                        Loading...
+                                                    </span>
+                                                </div>
+                                                Initial Login might take some time, please wait...
+                                            </div>
+                                            ) : null}
                                         </form>
                                     </div>
                                 </div>

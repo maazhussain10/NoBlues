@@ -128,7 +128,6 @@ class Chat extends Component {
             sidebarTheme = "white";
             chatWindowTheme = "#F0FFFF";
         }
-        console.log(sidebarTheme);
         return (
             <div>
                 <CampusNavbar getChatDetails={this.getChatDetails} />
@@ -306,7 +305,9 @@ class Chat extends Component {
                                                             </div>
                                                         </div>
                                                     ) : (
-                                                        <div className="incoming_msg">
+                                                            <div className="incoming_msg"
+                                                                key={index}
+                                                        >
                                                             <div className="incoming_msg_img">
                                                                 {" "}
                                                                 <img

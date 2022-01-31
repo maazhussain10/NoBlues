@@ -8,8 +8,11 @@ class DashboardNavbar extends Component {
     };
 
     handleLogout = () => {
-        localStorage.clear();
+        localStorage.removeItem("campusName");
+        localStorage.removeItem("campusQkey");
+        localStorage.removeItem("username");
     };
+
     render() {
         return (
             <div>

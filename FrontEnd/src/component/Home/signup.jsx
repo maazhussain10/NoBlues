@@ -22,7 +22,6 @@ class Signup extends Component {
             campusQKey: document.getElementById("campusQKey").value,
         });
         if (this.state.campusQKey.length === 8) {
-            console.log("inside");
             try {
                 axios({
                     method: "get",
@@ -32,7 +31,6 @@ class Signup extends Component {
                     },
                 }).then((response) => {
                     this.setState({ camnpusInfo: response.data });
-                    console.log(this.state.camnpusInfo);
                 });
             } catch (e) {
                 console.log(e);

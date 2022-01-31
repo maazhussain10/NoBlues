@@ -4,10 +4,8 @@ import '../../css/settings.css';
 class Settings extends Component {
 
     selectedTab = (id) => {
-        console.log("Hello");
         let prevSelectedTab = document.getElementsByClassName("account-settings-links");
         prevSelectedTab.a= "";
-
     }
 
     render() {

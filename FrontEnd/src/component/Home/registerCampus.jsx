@@ -34,15 +34,6 @@ class RegisterCampus extends Component {
             campusLogo,
             campusPassword,
         } = this.state;
-        console.log(
-            campusName,
-            campusType,
-            planType,
-            noOfPersons,
-            campusEmail,
-            campusLogo,
-            campusPassword
-        );
         try {
             axios({
                 method: "post",
@@ -56,7 +47,9 @@ class RegisterCampus extends Component {
                     campusLogo: campusLogo,
                     campusPassword: campusPassword,
                 },
-            }).then((response) => {});
+            }).then((response) => {
+                alert("Your CampusQKey is : ", response.data);
+            });
         } catch (e) {
             console.log(e);
         }

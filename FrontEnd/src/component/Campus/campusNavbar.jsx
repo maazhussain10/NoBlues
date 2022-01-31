@@ -31,6 +31,12 @@ class CampusNavbar extends Component {
         await this.getFriends();
     };
 
+    handleLogout = () => {
+        localStorage.removeItem("campusName");
+        localStorage.removeItem("campusQkey");
+        localStorage.removeItem("username");
+    };
+
     getFriends = () => {
         let { username, campusId } = this.state;
         try {
@@ -50,7 +56,6 @@ class CampusNavbar extends Component {
     };
 
     depressedPortal = (status) => {
-        console.log(status);
         localStorage.setItem("depressedPortal", status);
         this.setState({
             depressedPortal: localStorage.getItem("depressedPortal"),
@@ -79,7 +84,6 @@ class CampusNavbar extends Component {
             textColor = "#000000";
             sidebarTheme = "#f5f5f5";
         }
-        console.log(this.state.isChatPage);
 
         if (friendUsername) {
             return (
@@ -231,6 +235,7 @@ class CampusNavbar extends Component {
                                                 className="nav-link active"
                                                 aria-current="page"
                                                 href="/"
+                                                onClick={() => this.handleLogout()}
                                             >
                                                 Logout
                                             </a>

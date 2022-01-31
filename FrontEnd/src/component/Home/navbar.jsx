@@ -11,7 +11,7 @@ class Navbar extends Component {
                     style={{ borderBottom: "1px solid grey" }}
                 >
                     <div className="container-fluid">
-                        <a href="/" style={{ textDecoration: "none" }} class="navbar-brand">
+                        <a href="/" style={{ textDecoration: "none" }} className="navbar-brand">
                             <img
                                 src={Logo}
                                 alt="NoBlues"
@@ -31,7 +31,7 @@ class Navbar extends Component {
                                 NoBlues
                             </a>
                         </a>
-                        <span class="navbar-text">
+                        <span className="navbar-text">
                             <ul className="navbar-nav form-inline me-auto mb-2 mb-lg-0">
                                 <li className="nav-item">
                                     <a

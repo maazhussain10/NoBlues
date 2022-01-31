@@ -15,7 +15,6 @@ class HomePage extends Component {
     };
 
     async componentDidMount() {
-        console.log(localStorage.getItem("loading"));
         if (localStorage.getItem("loading") === "false") {
             if(localStorage.getItem("loading")==="false")
             this.setState({ loading: false});

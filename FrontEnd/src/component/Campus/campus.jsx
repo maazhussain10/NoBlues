@@ -37,7 +37,6 @@ class Campus extends Component {
             campusName: localStorage.getItem("campusName"),
             campusId: localStorage.getItem("campusQkey"),
         });
-        console.log(this.state.tags);
     };
 
     handleDelete(i) {
@@ -49,7 +48,6 @@ class Campus extends Component {
 
     async handleAddition(tag) {
         await this.setState((state) => ({ tags: [...state.tags, tag] }));
-        console.log(this.state.tags);
     }
 
     handleDrag(tag, currPos, newPos) {
@@ -69,7 +67,6 @@ class Campus extends Component {
         });
 
         let { username, campusId, queries, tags } = this.state;
-        console.log(username, campusId, queries, tags);
         try {
             axios({
                 method: "get",

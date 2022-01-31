@@ -181,6 +181,7 @@ class AnswerQuery extends Component {
                         {answers.map((answer, index) => (
                             <div
                                 className="replies"
+                                key={index}
                                 style={{ background: "#F0F0FF" }}
                             >
                                 {isAdmin ||

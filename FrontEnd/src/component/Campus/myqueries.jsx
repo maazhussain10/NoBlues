@@ -68,7 +68,6 @@ class MyQueries extends Component {
 
     render() {
         if (this.state.queryId) {
-            console.log(this.state.query, this.state.queryId);
             return (
                 <Redirect
                     to={{

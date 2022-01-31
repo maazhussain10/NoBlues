@@ -68,6 +68,7 @@ class Dashboard extends Component {
                         <div className="col-lg-5 col-md-12">
                             {this.state.campusDetails.map((campus, index) => (
                                 <div
+                                    key={index}
                                     className="outercard"
                                     onClick={() => this.selectedCampus(campus)}
                                 >
